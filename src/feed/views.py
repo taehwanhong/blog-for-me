@@ -1,9 +1,16 @@
 from django.shortcuts import render
-
+from .models import Article, Comment, Hashtag
 # Create your views here.
 
 
 def index(request):
+    article_list = Article.objects.all()
+
+    ctx = {
+        "article_list" : article_list
+    }
+    return render(request, "index.html", ctx)
+
     pass
 
 
