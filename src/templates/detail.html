@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+    <div class="container">
+        <div class="blog-header">
+            <h1 class="blog-title">{{ article.title }}</h1>
+            <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+        </div>
+        <div class="raw">
+            <div class="col-sm-8 blog-main">
+                <div class="blog-post">
 
-</body>
-</html>
+                    <div class="blog-post-title"> {{ article.title }} </div>
+                    <p> {{ article.content }}</p>
+
+                </div>
+            </div>
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                <biv class="sidebar-module sidebar-module-inset">
+                    <h7>hash-tags</h7>
+                    <ol class="list-unstyled">
+                        {% for hashtag in hashtag_list %}
+                        <li> #{{ hashtag }}</li>
+                        {% endfor %}
+                    </ol>
+                </biv>
+                <biv class="sidebar-module sidebar-module-inset">
+                    <h7>hash-tags</h7>
+                </biv>
+            </div>
+        </div>
+    </div>
+{% endblock %}
